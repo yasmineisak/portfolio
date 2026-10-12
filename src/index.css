@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-slate-200 antialiased overflow-x-hidden;
+  }
+}
+
+@layer utilities {
+  .section-container {
+    @apply w-full max-w-6xl mx-auto px-6 py-24;
+  }
+  
+  .glass-card {
+    @apply bg-white/75 backdrop-blur-2xl rounded-2xl border border-white/80 shadow-[0_20px_50px_rgba(77,22,47,0.12)] text-slate-800;
+  }
+  
+  .glass-card-interactive {
+    @apply glass-card hover:bg-white/90 hover:border-white hover:shadow-[0_25px_60px_rgba(77,22,47,0.22)] transition-all duration-300;
+  }
+
+  .hero-glass-pill {
+    @apply bg-white/70 backdrop-blur-md border border-white/80 shadow-[0_8px_30px_rgb(0,0,0,0.06)] text-slate-800;
+  }
+
+  .hero-glass-card {
+    @apply bg-white/60 backdrop-blur-xl border border-white/80 shadow-[0_20px_50px_rgba(77,22,47,0.12)] text-slate-800;
+  }
+}
+
+/* Custom Wine-Themed Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #3a0d1e;
+}
+::-webkit-scrollbar-thumb {
+  background: #5a1937;
+  border-radius: 5px;
+  border: 2px solid #3a0d1e;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7a224a;
+}
+
+@keyframes cursor-pulse {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.15) translateY(-3px);
+    opacity: 0.6;
+  }
+}
+
+.animate-cursor-pulse {
+  animation: cursor-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

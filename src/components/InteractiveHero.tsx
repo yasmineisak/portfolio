@@ -237,7 +237,7 @@ export default function InteractiveHero() {
       </div>
 
       {/* TOP NAVIGATION (Area: Minimal navigation and brand name) */}
-      <header className="relative z-30 w-full max-w-7xl mx-auto px-6 py-4 sm:py-5 flex items-center justify-between">
+      <header className="relative z-30 w-full max-w-7xl mx-auto px-6 py-4 sm:py-5 hidden md:flex items-center justify-between">
         <a href="#" className="flex items-center gap-2 group">
           <div className="w-9 h-9 rounded-xl bg-white/80 backdrop-blur-md border border-white shadow-md flex items-center justify-center font-bold text-maroon-700 tracking-wider text-base group-hover:scale-105 transition-transform">
             YI
@@ -272,7 +272,7 @@ export default function InteractiveHero() {
       {/* MAIN HERO INTERACTIVE STAGE */}
       <div
         onClick={isMobile ? handleMobileTap : undefined}
-        className="relative z-20 flex-grow flex items-center justify-center w-full max-w-7xl mx-auto px-4 sm:px-6 cursor-default"
+        className="relative z-20 flex-grow flex items-center justify-center w-full max-w-7xl mx-auto px-4 sm:px-6 cursor-default pt-16 md:pt-0"
       >
         {/* INTERACTION ZONES DEBUG / VISUAL INDICATORS (Desktop only) */}
         {!isMobile && (

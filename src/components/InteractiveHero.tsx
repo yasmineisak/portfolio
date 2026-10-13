@@ -257,8 +257,10 @@ export default function InteractiveHero() {
 
         <div className="flex items-center gap-3">
           <a
-            href={`${import.meta.env.BASE_URL}ISAKROUHEN_Yasmine_FlowCV_Resume_2026-10-03 (3).pdf`}
-            download
+            href={`${import.meta.env.BASE_URL}${t.hero.cvFile}`}
+            download={t.hero.cvFile}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/80 hover:bg-white text-maroon-700 font-semibold text-xs md:text-sm border border-white shadow-sm hover:shadow-md transition-all active:scale-95"
           >
             <Download size={15} />

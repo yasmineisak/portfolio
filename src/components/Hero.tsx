@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Download } from 'lucide-react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
+import { useLanguage } from '../context/LanguageContext';
 // @ts-ignore
 import * as random from 'maath/random/dist/maath-random.esm';
 
@@ -35,6 +36,9 @@ function StarSphere() {
 }
 
 export default function Hero() {
+  const { t, language } = useLanguage();
+  const cvFileName = t.hero.cvFile;
+
   return (
     <section className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-background">
       {/* 3D Canvas Background */}
@@ -82,12 +86,14 @@ export default function Hero() {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href={`${import.meta.env.BASE_URL}ISAKROUHEN_Yasmine_FlowCV_Resume_2026-10-03 (3).pdf`}
-            download
+            href={`${import.meta.env.BASE_URL}${cvFileName}`}
+            download={cvFileName}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-xl font-bold text-lg shadow-[0_0_30px_rgba(139,92,246,0.4)] hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] transition-all"
           >
             <Download size={22} />
-            Télécharger le CV
+            {language === 'fr' ? 'Télécharger le CV' : 'Download CV'}
           </motion.a>
         </motion.div>
       </div>

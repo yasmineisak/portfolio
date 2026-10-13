@@ -191,8 +191,10 @@ export default function AboutMe() {
               <span>{t.about.opportunity.contactBtn}</span>
             </a>
             <a
-              href={`${import.meta.env.BASE_URL}ISAKROUHEN_Yasmine_FlowCV_Resume_2026-10-03 (3).pdf`}
-              download
+              href={`${import.meta.env.BASE_URL}${t.about.opportunity.cvFile}`}
+              download={t.about.opportunity.cvFile}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white hover:bg-roseDust-50 text-maroon-800 border border-roseDust-200 font-bold text-xs transition-all shadow-xs active:scale-95"
             >
               <Download size={15} />

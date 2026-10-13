@@ -1,7 +1,11 @@
 import { motion } from 'framer-motion';
 import { Download, FileText } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function ResumeCard() {
+  const { t, language } = useLanguage();
+  const cvFileName = t.hero.cvFile;
+
   return (
     <section className="w-full max-w-6xl mx-auto px-6 py-20">
       <motion.div 
@@ -20,17 +24,19 @@ export default function ResumeCard() {
             </div>
             <div>
               <h3 className="text-2xl font-bold font-sans">Curriculum Vitae</h3>
-              <p className="text-gray-400 font-mono text-sm mt-1">ISAKROUHEN_Yasmine_FlowCV_Resume_2026-10-03 (3).pdf</p>
+              <p className="text-gray-400 font-mono text-sm mt-1">{cvFileName}</p>
             </div>
           </div>
           
           <a
-            href={`${import.meta.env.BASE_URL}ISAKROUHEN_Yasmine_FlowCV_Resume_2026-10-03 (3).pdf`}
-            download
+            href={`${import.meta.env.BASE_URL}${cvFileName}`}
+            download={cvFileName}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center space-x-2 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg font-semibold transition-all hover:scale-105 active:scale-95"
           >
             <Download size={20} />
-            <span>Download CV</span>
+            <span>{language === 'fr' ? 'Télécharger le CV' : 'Download CV'}</span>
           </a>
         </div>
       </motion.div>

@@ -24,6 +24,7 @@ export interface Translations {
     specialtyDesc: string;
     specialtySchool: string;
     cvDownload: string;
+    cvFile: string;
     exploreBtn: string;
   };
   about: {
@@ -58,6 +59,7 @@ export interface Translations {
       formatVal: string;
       contactBtn: string;
       cvBtn: string;
+      cvFile: string;
     };
     bento: {
       locLabel: string;
@@ -166,6 +168,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       specialtyDesc: "Pipeline de données distribués, Computer Vision & architectures LLM/RAG scalables.",
       specialtySchool: "EMSI Tanger • 2025 - 2027",
       cvDownload: "CV",
+      cvFile: "ISAKROUHEN_Yasmine_CV.pdf",
       exploreBtn: "CHECK OUT THE PORTFOLIO",
     },
     about: {
@@ -200,6 +203,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         formatVal: "Stage de Fin d'Études (6 mois) • Présentiel ou Hybride",
         contactBtn: "Me Contacter",
         cvBtn: "CV (PDF)",
+        cvFile: "ISAKROUHEN_Yasmine_CV.pdf",
       },
       bento: {
         locLabel: "LOCALISATION",
@@ -453,7 +457,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       specialtyTitle: "Data Engineering & AI",
       specialtyDesc: "Distributed data pipelines, Computer Vision & scalable LLM/RAG architectures.",
       specialtySchool: "EMSI Tangier • 2025 - 2027",
-      cvDownload: "CV",
+      cvDownload: "Resume",
+      cvFile: "Yasmine_isakrouhen_resume.pdf",
       exploreBtn: "CHECK OUT THE PORTFOLIO",
     },
     about: {
@@ -488,6 +493,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         formatVal: "Graduation Internship (6 months) • On-site or Hybrid",
         contactBtn: "Contact Me",
         cvBtn: "Resume (PDF)",
+        cvFile: "Yasmine_isakrouhen_resume.pdf",
       },
       bento: {
         locLabel: "LOCATION",

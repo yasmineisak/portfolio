@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Sparkles, Heart, GraduationCap, Download, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, Sparkles, GraduationCap, Download, ExternalLink } from 'lucide-react';
 import InteractiveHero from './components/InteractiveHero';
 import StickyNav from './components/StickyNav';
 import AboutMe from './components/AboutMe';
@@ -185,11 +185,9 @@ function PortfolioContent() {
 
           {/* Bottom Row: Copyright */}
           <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-roseDust-300/70">
-            <div className="flex items-center gap-1.5">
-              <span>{t.footer.copyrightStart}</span>
-              <Heart size={12} className="text-rose-400 fill-rose-400 inline" />
-              <span>{t.footer.copyrightEnd}</span>
-            </div>
+            <p className="text-xs text-roseDust-300 font-medium">
+              {t.footer.copyright}
+            </p>
             <p className="text-[11px] text-roseDust-400/60 font-mono">
               EMSI Tanger • Big Data & IA 2025-2027
             </p>

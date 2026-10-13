@@ -323,96 +323,136 @@ export default function InteractiveHero() {
             initial={{ opacity: 0, x: -25 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="hero-glass-card p-5 rounded-2xl max-w-xs shadow-xl"
+            className="w-full max-w-[340px] rounded-3xl bg-white/75 backdrop-blur-2xl border border-white/90 shadow-[0_25px_60px_rgba(58,13,30,0.18)] p-5 relative overflow-hidden space-y-3.5"
           >
-            <div className="flex items-center gap-2 mb-2.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-              <span className="text-[11px] font-bold uppercase tracking-wider text-maroon-700">
-                {t.hero.availablePill}
-              </span>
+            {/* Subtle luxury ambient glow behind card */}
+            <div className="absolute -top-12 -right-12 w-28 h-28 bg-gradient-to-br from-roseDust-300/30 to-maroon-400/20 rounded-full blur-2xl pointer-events-none" />
+
+            {/* Header: Status pill + Name & Role */}
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 text-[10px] font-bold uppercase tracking-wider mb-2 shadow-2xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span>{t.hero.availablePill}</span>
+              </div>
+
+              <h1 className="text-2xl font-black text-slate-900 tracking-tight leading-none mb-1">
+                Yasmine Isakrouhen
+              </h1>
+              <p className="text-xs font-bold text-maroon-700">
+                {t.hero.role}
+              </p>
             </div>
 
-            <h1 className="text-xl font-bold text-slate-900 leading-tight mb-1">
-              I'm Yasmine Isakrouhen
-            </h1>
-            <p className="text-xs font-semibold text-maroon-700 mb-3.5">
-              {t.hero.role}
-            </p>
+            {/* Contact Pills Hub */}
+            <div className="pt-3 border-t border-roseDust-200/70 space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-maroon-800/80">
+                  {t.contact?.title || "Contact & Coordonnées"}
+                </span>
+                <span className="text-[9px] font-semibold text-roseDust-400 bg-roseDust-50 px-2 py-0.5 rounded-full border border-roseDust-200/60">
+                  Direct
+                </span>
+              </div>
 
-            {/* Quick Contact Links in Hero */}
-            <div className="pt-3 border-t border-roseDust-200/80 space-y-2 mb-3.5">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-maroon-800 block">
-                {t.contact?.title || "Contact & Coordonnées"}
-              </span>
-
-              {/* Personal Email */}
+              {/* 1. Personal Email */}
               <a 
                 href="mailto:isakrouhenyasmine@gmail.com"
-                className="flex items-center gap-2.5 text-xs text-slate-700 hover:text-maroon-800 transition-colors group select-text"
+                className="flex items-center justify-between p-2 px-3 rounded-2xl bg-white/60 hover:bg-white border border-white/80 hover:border-maroon-300/80 shadow-xs hover:shadow-md transition-all duration-200 group"
                 title="Email Personnel"
               >
-                <div className="w-6 h-6 rounded-md bg-white shadow-xs border border-roseDust-200/80 flex items-center justify-center text-maroon-700 shrink-0 group-hover:scale-105 transition-transform">
-                  <Mail size={12} />
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-[#2a0715] to-[#4d162f] text-roseDust-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-xs">
+                    <Mail size={13} />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="text-[9px] font-extrabold uppercase tracking-wider text-maroon-700/80 block leading-none">
+                      {t.contact?.personalEmailLabel || "Email Personnel"}
+                    </span>
+                    <span className="text-[11px] font-bold text-slate-800 truncate block mt-0.5 group-hover:text-maroon-900">
+                      isakrouhenyasmine@gmail.com
+                    </span>
+                  </div>
                 </div>
-                <span className="truncate text-[11px] font-medium text-slate-800 group-hover:underline">
-                  isakrouhenyasmine@gmail.com
-                </span>
+                <ExternalLink size={12} className="text-slate-400 group-hover:text-maroon-700 shrink-0 ml-1.5 opacity-50 group-hover:opacity-100 transition-opacity" />
               </a>
 
-              {/* University Email */}
+              {/* 2. University Email */}
               <a 
                 href="mailto:Yasmine.Isakrouhen@emsi-edu.ma"
-                className="flex items-center gap-2.5 text-xs text-slate-700 hover:text-maroon-800 transition-colors group select-text"
+                className="flex items-center justify-between p-2 px-3 rounded-2xl bg-white/60 hover:bg-white border border-white/80 hover:border-maroon-300/80 shadow-xs hover:shadow-md transition-all duration-200 group"
                 title="Email Universitaire (EMSI)"
               >
-                <div className="w-6 h-6 rounded-md bg-white shadow-xs border border-roseDust-200/80 flex items-center justify-center text-maroon-700 shrink-0 group-hover:scale-105 transition-transform">
-                  <GraduationCap size={12} />
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-[#2a0715] to-[#4d162f] text-roseDust-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-xs">
+                    <GraduationCap size={13} />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="text-[9px] font-extrabold uppercase tracking-wider text-maroon-700/80 block leading-none">
+                      {t.contact?.universityEmailLabel || "Email Universitaire"}
+                    </span>
+                    <span className="text-[11px] font-bold text-slate-800 truncate block mt-0.5 group-hover:text-maroon-900">
+                      Yasmine.Isakrouhen@emsi-edu.ma
+                    </span>
+                  </div>
                 </div>
-                <span className="truncate text-[11px] font-medium text-slate-800 group-hover:underline">
-                  Yasmine.Isakrouhen@emsi-edu.ma
-                </span>
+                <ExternalLink size={12} className="text-slate-400 group-hover:text-maroon-700 shrink-0 ml-1.5 opacity-50 group-hover:opacity-100 transition-opacity" />
               </a>
 
-              {/* Phone */}
+              {/* 3. Phone Number */}
               <a 
                 href="tel:+212632825077"
-                className="flex items-center gap-2.5 text-xs text-slate-700 hover:text-maroon-800 transition-colors group select-text"
-                title="Téléphone: 0632825077"
+                className="flex items-center justify-between p-2 px-3 rounded-2xl bg-white/60 hover:bg-white border border-white/80 hover:border-emerald-400 shadow-xs hover:shadow-md transition-all duration-200 group"
+                title="Appeler: +212 632 82 50 77"
               >
-                <div className="w-6 h-6 rounded-md bg-white shadow-xs border border-roseDust-200/80 flex items-center justify-center text-maroon-700 shrink-0 group-hover:scale-105 transition-transform">
-                  <Phone size={12} />
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-700 text-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-xs">
+                    <Phone size={13} />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="text-[9px] font-extrabold uppercase tracking-wider text-emerald-800 block leading-none">
+                      {t.contact?.phoneLabel || "Téléphone"}
+                    </span>
+                    <span className="text-[11px] font-bold text-slate-800 truncate block mt-0.5 group-hover:text-emerald-900">
+                      +212 632 82 50 77 <span className="text-[10px] text-slate-500 font-normal">(0632825077)</span>
+                    </span>
+                  </div>
                 </div>
-                <span className="text-[11px] font-bold text-slate-800 group-hover:underline">
-                  +212 632 82 50 77
-                </span>
+                <ExternalLink size={12} className="text-slate-400 group-hover:text-emerald-700 shrink-0 ml-1.5 opacity-50 group-hover:opacity-100 transition-opacity" />
               </a>
 
-              {/* LinkedIn */}
+              {/* 4. LinkedIn */}
               <a 
                 href="https://www.linkedin.com/in/yasmine-isakrouhen/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 text-xs text-slate-700 hover:text-maroon-800 transition-colors group select-text"
+                className="flex items-center justify-between p-2 px-3 rounded-2xl bg-white/60 hover:bg-white border border-white/80 hover:border-[#0A66C2]/60 shadow-xs hover:shadow-md transition-all duration-200 group"
                 title="Profil LinkedIn"
               >
-                <div className="w-6 h-6 rounded-md bg-white shadow-xs border border-roseDust-200/80 flex items-center justify-center text-[#0A66C2] shrink-0 group-hover:scale-105 transition-transform">
-                  <LinkedinIcon size={12} />
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="w-7 h-7 rounded-xl bg-[#0A66C2] text-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-xs">
+                    <LinkedinIcon size={13} />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="text-[9px] font-extrabold uppercase tracking-wider text-[#0A66C2] block leading-none">
+                      {t.contact?.linkedinLabel || "LinkedIn"}
+                    </span>
+                    <span className="text-[11px] font-bold text-slate-800 truncate block mt-0.5 group-hover:text-[#0A66C2]">
+                      yasmine-isakrouhen
+                    </span>
+                  </div>
                 </div>
-                <span className="text-[11px] font-bold text-slate-800 group-hover:underline flex items-center gap-1">
-                  <span>LinkedIn</span>
-                  <ExternalLink size={10} className="text-slate-400" />
-                </span>
+                <ExternalLink size={12} className="text-slate-400 group-hover:text-[#0A66C2] shrink-0 ml-1.5 opacity-50 group-hover:opacity-100 transition-opacity" />
               </a>
             </div>
 
-            <div className="pt-2.5 border-t border-roseDust-200/80 flex items-center gap-2 text-xs font-semibold text-slate-700">
-              <div className="w-6 h-6 rounded-lg bg-white shadow-xs flex items-center justify-center text-maroon-600 animate-cursor-pulse">
-                <MousePointer size={12} />
+            {/* Bottom Interaction Cue */}
+            <div className="pt-2.5 border-t border-roseDust-200/60 flex items-center gap-2 text-slate-600">
+              <div className="w-5 h-5 rounded-md bg-white/80 border border-roseDust-200 flex items-center justify-center text-maroon-600 shrink-0 shadow-2xs animate-cursor-pulse">
+                <MousePointer size={11} />
               </div>
-              <div>
-                <p className="font-semibold text-slate-900 text-[11px] leading-snug">{t.hero.callMePrompt}</p>
-                <p className="text-[9px] text-slate-500 font-normal">{t.hero.hoverSub}</p>
-              </div>
+              <p className="text-[10px] text-slate-500 font-medium truncate">
+                {t.hero.hoverSub}
+              </p>
             </div>
           </motion.div>
         </div>

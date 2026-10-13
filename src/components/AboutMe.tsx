@@ -184,7 +184,7 @@ export default function AboutMe() {
           {/* Action buttons */}
           <div className="pt-4 border-t border-slate-200/70 flex flex-col sm:flex-row gap-3">
             <a
-              href="mailto:contact@yasmine-isakrouhen.me"
+              href="mailto:isakrouhenyasmine@gmail.com"
               className="flex-1 flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-maroon-800 hover:bg-maroon-700 text-white font-bold text-xs tracking-wide transition-all shadow-sm hover:shadow-md active:scale-95"
             >
               <Mail size={15} />

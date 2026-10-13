@@ -1,9 +1,23 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { User, FolderGit2, Briefcase, Cpu, Award, Menu, X, Download } from 'lucide-react';
+import { User, FolderGit2, Briefcase, Cpu, Award, Menu, X, Download, Phone, Mail } from 'lucide-react';
 import JellyRadio, { JellyRadioItemObj } from './JellyRadio';
 import LanguageToggle from './LanguageToggle';
 import { useLanguage } from '../context/LanguageContext';
+
+function LinkedinIcon({ size = 15, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg 
+      width={size} 
+      height={size} 
+      viewBox="0 0 24 24" 
+      fill="currentColor"
+      className={className}
+    >
+      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64c-.9 0-1.63.73-1.63 1.63 0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.63-1.63-1.63Z" />
+    </svg>
+  );
+}
 
 export default function StickyNav() {
   const { t } = useLanguage();
@@ -263,6 +277,33 @@ export default function StickyNav() {
                   <Download size={16} />
                   <span>{t.about.opportunity.cvBtn || t.hero.cvDownload}</span>
                 </a>
+
+                {/* Mobile Quick Contact Bar */}
+                <div className="grid grid-cols-3 gap-2 pt-1">
+                  <a
+                    href="tel:+212632825077"
+                    className="flex flex-col items-center justify-center p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-[10px] font-medium transition-colors"
+                  >
+                    <Phone size={13} className="text-roseDust-300 mb-1" />
+                    <span>0632825077</span>
+                  </a>
+                  <a
+                    href="mailto:isakrouhenyasmine@gmail.com"
+                    className="flex flex-col items-center justify-center p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-[10px] font-medium transition-colors"
+                  >
+                    <Mail size={13} className="text-roseDust-300 mb-1" />
+                    <span>Email</span>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/yasmine-isakrouhen/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center justify-center p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-[10px] font-medium transition-colors"
+                  >
+                    <LinkedinIcon size={13} className="text-[#58a6ff] mb-1" />
+                    <span>LinkedIn</span>
+                  </a>
+                </div>
               </motion.div>
             </>
           )}

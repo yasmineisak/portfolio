@@ -1,8 +1,22 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MousePointer, ChevronDown, Download, Sparkles } from 'lucide-react';
+import { MousePointer, ChevronDown, Download, Sparkles, Mail, Phone, GraduationCap, ExternalLink } from 'lucide-react';
 import SpecularButton from './SpecularButton';
 import { useLanguage } from '../context/LanguageContext';
+
+function LinkedinIcon({ size = 15, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg 
+      width={size} 
+      height={size} 
+      viewBox="0 0 24 24" 
+      fill="currentColor"
+      className={className}
+    >
+      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64c-.9 0-1.63.73-1.63 1.63 0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.63-1.63-1.63Z" />
+    </svg>
+  );
+}
 
 type InteractionState = 'idle' | 'left' | 'right' | 'center' | 'center_greet' | 'center_point';
 
@@ -255,7 +269,18 @@ export default function InteractiveHero() {
         {/* Center space reserved for persistent StickyNav with JellyRadio */}
         <div className="hidden md:block w-32" />
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5">
+          {/* LinkedIn Profile Button */}
+          <a
+            href="https://www.linkedin.com/in/yasmine-isakrouhen/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="LinkedIn Profile"
+            className="flex items-center justify-center w-9 h-9 rounded-full bg-white/80 hover:bg-white text-[#0A66C2] border border-white shadow-sm hover:shadow-md transition-all active:scale-95"
+          >
+            <LinkedinIcon size={16} />
+          </a>
+
           <a
             href={`${import.meta.env.BASE_URL}${t.hero.cvFile}`}
             download={t.hero.cvFile}
@@ -292,36 +317,101 @@ export default function InteractiveHero() {
           </div>
         )}
 
-        {/* LEFT COLUMN: Personal intro + cursor instruction */}
-        <div className="hidden lg:flex flex-col justify-center items-start w-1/4 z-30 pointer-events-none select-none pl-4">
+        {/* LEFT COLUMN: Personal intro + contact details + cursor instruction */}
+        <div className="hidden lg:flex flex-col justify-center items-start w-1/4 z-30 pointer-events-auto pl-4">
           <motion.div
             initial={{ opacity: 0, x: -25 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="hero-glass-card p-6 rounded-2xl max-w-xs"
+            className="hero-glass-card p-5 rounded-2xl max-w-xs shadow-xl"
           >
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2 mb-2.5">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
               <span className="text-[11px] font-bold uppercase tracking-wider text-maroon-700">
                 {t.hero.availablePill}
               </span>
             </div>
 
-            {/* Guide specification: "I'm Sushmita Dasari Web Developer" -> Yasmine Isakrouhen */}
-            <h1 className="text-2xl font-bold text-slate-900 leading-tight mb-1">
+            <h1 className="text-xl font-bold text-slate-900 leading-tight mb-1">
               I'm Yasmine Isakrouhen
             </h1>
-            <p className="text-sm font-medium text-maroon-700 mb-5">
+            <p className="text-xs font-semibold text-maroon-700 mb-3.5">
               {t.hero.role}
             </p>
 
-            <div className="pt-4 border-t border-roseDust-200/80 flex items-center gap-3 text-xs font-semibold text-slate-700">
-              <div className="w-7 h-7 rounded-lg bg-white shadow-sm flex items-center justify-center text-maroon-600 animate-cursor-pulse">
-                <MousePointer size={14} />
+            {/* Quick Contact Links in Hero */}
+            <div className="pt-3 border-t border-roseDust-200/80 space-y-2 mb-3.5">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-maroon-800 block">
+                {t.contact?.title || "Contact & Coordonnées"}
+              </span>
+
+              {/* Personal Email */}
+              <a 
+                href="mailto:isakrouhenyasmine@gmail.com"
+                className="flex items-center gap-2.5 text-xs text-slate-700 hover:text-maroon-800 transition-colors group select-text"
+                title="Email Personnel"
+              >
+                <div className="w-6 h-6 rounded-md bg-white shadow-xs border border-roseDust-200/80 flex items-center justify-center text-maroon-700 shrink-0 group-hover:scale-105 transition-transform">
+                  <Mail size={12} />
+                </div>
+                <span className="truncate text-[11px] font-medium text-slate-800 group-hover:underline">
+                  isakrouhenyasmine@gmail.com
+                </span>
+              </a>
+
+              {/* University Email */}
+              <a 
+                href="mailto:Yasmine.Isakrouhen@emsi-edu.ma"
+                className="flex items-center gap-2.5 text-xs text-slate-700 hover:text-maroon-800 transition-colors group select-text"
+                title="Email Universitaire (EMSI)"
+              >
+                <div className="w-6 h-6 rounded-md bg-white shadow-xs border border-roseDust-200/80 flex items-center justify-center text-maroon-700 shrink-0 group-hover:scale-105 transition-transform">
+                  <GraduationCap size={12} />
+                </div>
+                <span className="truncate text-[11px] font-medium text-slate-800 group-hover:underline">
+                  Yasmine.Isakrouhen@emsi-edu.ma
+                </span>
+              </a>
+
+              {/* Phone */}
+              <a 
+                href="tel:+212632825077"
+                className="flex items-center gap-2.5 text-xs text-slate-700 hover:text-maroon-800 transition-colors group select-text"
+                title="Téléphone: 0632825077"
+              >
+                <div className="w-6 h-6 rounded-md bg-white shadow-xs border border-roseDust-200/80 flex items-center justify-center text-maroon-700 shrink-0 group-hover:scale-105 transition-transform">
+                  <Phone size={12} />
+                </div>
+                <span className="text-[11px] font-bold text-slate-800 group-hover:underline">
+                  +212 632 82 50 77
+                </span>
+              </a>
+
+              {/* LinkedIn */}
+              <a 
+                href="https://www.linkedin.com/in/yasmine-isakrouhen/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 text-xs text-slate-700 hover:text-maroon-800 transition-colors group select-text"
+                title="Profil LinkedIn"
+              >
+                <div className="w-6 h-6 rounded-md bg-white shadow-xs border border-roseDust-200/80 flex items-center justify-center text-[#0A66C2] shrink-0 group-hover:scale-105 transition-transform">
+                  <LinkedinIcon size={12} />
+                </div>
+                <span className="text-[11px] font-bold text-slate-800 group-hover:underline flex items-center gap-1">
+                  <span>LinkedIn</span>
+                  <ExternalLink size={10} className="text-slate-400" />
+                </span>
+              </a>
+            </div>
+
+            <div className="pt-2.5 border-t border-roseDust-200/80 flex items-center gap-2 text-xs font-semibold text-slate-700">
+              <div className="w-6 h-6 rounded-lg bg-white shadow-xs flex items-center justify-center text-maroon-600 animate-cursor-pulse">
+                <MousePointer size={12} />
               </div>
               <div>
-                <p className="font-semibold text-slate-900 leading-snug">{t.hero.callMePrompt}</p>
-                <p className="text-[10px] text-slate-500 font-normal">{t.hero.hoverSub}</p>
+                <p className="font-semibold text-slate-900 text-[11px] leading-snug">{t.hero.callMePrompt}</p>
+                <p className="text-[9px] text-slate-500 font-normal">{t.hero.hoverSub}</p>
               </div>
             </div>
           </motion.div>
@@ -334,9 +424,39 @@ export default function InteractiveHero() {
             <span className="inline-block px-3 py-1 rounded-full bg-white/70 text-maroon-700 text-xs font-bold mb-2 shadow-sm">
               I'm Yasmine Isakrouhen
             </span>
-            <p className="text-xs text-roseDust-200 font-medium">
+            <p className="text-xs text-roseDust-200 font-medium mb-3">
               {t.hero.mobileTap}
             </p>
+
+            {/* Mobile Contact Badges Bar */}
+            <div className="flex flex-wrap items-center justify-center gap-2 pointer-events-auto">
+              <a 
+                href="tel:+212632825077"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 text-maroon-900 text-[11px] font-bold shadow-sm border border-white/60 active:scale-95 transition-transform"
+                title="Appeler: 0632825077"
+              >
+                <Phone size={12} className="text-maroon-600" />
+                <span>06 32 82 50 77</span>
+              </a>
+              <a 
+                href="mailto:isakrouhenyasmine@gmail.com"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 text-maroon-900 text-[11px] font-bold shadow-sm border border-white/60 active:scale-95 transition-transform"
+                title="Email Personnel"
+              >
+                <Mail size={12} className="text-maroon-600" />
+                <span>Email</span>
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/yasmine-isakrouhen/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 text-[#0A66C2] text-[11px] font-bold shadow-sm border border-white/60 active:scale-95 transition-transform"
+                title="LinkedIn"
+              >
+                <LinkedinIcon size={12} />
+                <span>LinkedIn</span>
+              </a>
+            </div>
           </div>
 
           {/* Character Stage: Perfectly proportioned to viewport */}

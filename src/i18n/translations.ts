@@ -141,6 +141,13 @@ export interface Translations {
     copyrightStart: string;
     copyrightEnd: string;
   };
+  contact: {
+    title: string;
+    universityEmailLabel: string;
+    personalEmailLabel: string;
+    phoneLabel: string;
+    linkedinLabel: string;
+  };
 }
 
 export const TRANSLATIONS: Record<Language, Translations> = {
@@ -433,6 +440,13 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       copyrightStart: "© 2026 Yasmine Isakrouhen. Conçu avec",
       copyrightEnd: "• Portfolio Professionnel.",
     },
+    contact: {
+      title: "Contact & Coordonnées",
+      universityEmailLabel: "Email Universitaire",
+      personalEmailLabel: "Email Personnel",
+      phoneLabel: "Téléphone",
+      linkedinLabel: "Profil LinkedIn",
+    },
   },
   en: {
     nav: {
@@ -722,6 +736,13 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       contactBtn: "Contact Me",
       copyrightStart: "© 2026 Yasmine Isakrouhen. Crafted with",
       copyrightEnd: "• Professional Portfolio.",
+    },
+    contact: {
+      title: "Contact & Information",
+      universityEmailLabel: "University Email",
+      personalEmailLabel: "Personal Email",
+      phoneLabel: "Phone",
+      linkedinLabel: "LinkedIn Profile",
     },
   },
 };

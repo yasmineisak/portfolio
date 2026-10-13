@@ -436,7 +436,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       roleDesc: "Tanger, Maroc • Élève Ingénieure Big Data & IA",
       pfeBadge: "PFE 2027 Disponible",
       contactBtn: "Me Contacter",
-      copyright: "© 2026 Yasmine Isakrouhen",
+      copyright: "© 2026 Yasmine Isakrouhen • Tous droits réservés",
     },
     contact: {
       title: "Contact & Coordonnées",
@@ -732,7 +732,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       roleDesc: "Tangier, Morocco • Big Data & AI Engineering Student",
       pfeBadge: "PFE 2027 Available",
       contactBtn: "Contact Me",
-      copyright: "© 2026 Yasmine Isakrouhen",
+      copyright: "© 2026 Yasmine Isakrouhen • All rights reserved",
     },
     contact: {
       title: "Contact & Information",

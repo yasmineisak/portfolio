@@ -9,10 +9,10 @@ import { LanguageProvider, useLanguage } from './context/LanguageContext';
 
 function LinkedinIcon({ size = 16, className = "" }: { size?: number; className?: string }) {
   return (
-    <svg 
-      width={size} 
-      height={size} 
-      viewBox="0 0 24 24" 
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
       fill="currentColor"
       className={className}
     >
@@ -29,7 +29,7 @@ function PortfolioContent() {
       {/* Global dusty rose side vignettes matching hero */}
       <div className="fixed inset-y-0 left-0 w-1/3 bg-[radial-gradient(ellipse_at_0%_50%,rgba(194,108,131,0.35)_0%,transparent_70%)] pointer-events-none z-0" />
       <div className="fixed inset-y-0 right-0 w-1/3 bg-[radial-gradient(ellipse_at_100%_50%,rgba(194,108,131,0.35)_0%,transparent_70%)] pointer-events-none z-0" />
-      
+
       {/* Persistent Floating JellyRadio Navigation Dock */}
       <StickyNav />
 
@@ -43,7 +43,7 @@ function PortfolioContent() {
         <Experience />
         <Skills />
       </div>
-      
+
       {/* Luxury Frosted Footer with Comprehensive Contact Information */}
       <footer id="contact" className="w-full relative border-t border-white/20 bg-[#280816]/90 backdrop-blur-2xl py-14 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto space-y-10">
@@ -68,7 +68,7 @@ function PortfolioContent() {
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 {t.footer.pfeBadge}
               </span>
-              <a 
+              <a
                 href={`${import.meta.env.BASE_URL}${t.hero.cvFile}`}
                 download={t.hero.cvFile}
                 target="_blank"
@@ -90,7 +90,7 @@ function PortfolioContent() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {/* 1. Email Personnel */}
-              <a 
+              <a
                 href="mailto:isakrouhenyasmine@gmail.com"
                 className="p-5 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/25 transition-all group flex flex-col justify-between shadow-xs hover:shadow-md active:scale-98"
               >
@@ -113,7 +113,7 @@ function PortfolioContent() {
               </a>
 
               {/* 2. Email Universitaire */}
-              <a 
+              <a
                 href="mailto:Yasmine.Isakrouhen@emsi-edu.ma"
                 className="p-5 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/25 transition-all group flex flex-col justify-between shadow-xs hover:shadow-md active:scale-98"
               >
@@ -136,7 +136,7 @@ function PortfolioContent() {
               </a>
 
               {/* 3. Numéro Téléphone */}
-              <a 
+              <a
                 href="tel:+212632825077"
                 className="p-5 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/25 transition-all group flex flex-col justify-between shadow-xs hover:shadow-md active:scale-98"
               >
@@ -159,7 +159,7 @@ function PortfolioContent() {
               </a>
 
               {/* 4. LinkedIn */}
-              <a 
+              <a
                 href="https://www.linkedin.com/in/yasmine-isakrouhen/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -185,7 +185,7 @@ function PortfolioContent() {
 
           {/* Bottom Row: Copyright */}
           <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-roseDust-300/70">
-            <p className="text-xs text-roseDust-300 font-medium">
+            <p className="font-medium">
               {t.footer.copyright}
             </p>
             <p className="text-[11px] text-roseDust-400/60 font-mono">

@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MousePointer, ChevronDown, Download, Sparkles, Mail, Phone, GraduationCap, ExternalLink } from 'lucide-react';
+import { MousePointer, ChevronDown, Download, Sparkles, Mail, Phone, GraduationCap } from 'lucide-react';
 import SpecularButton from './SpecularButton';
 import { useLanguage } from '../context/LanguageContext';
 
 function LinkedinIcon({ size = 15, className = "" }: { size?: number; className?: string }) {
   return (
-    <svg 
-      width={size} 
-      height={size} 
-      viewBox="0 0 24 24" 
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
       fill="currentColor"
       className={className}
     >
@@ -317,142 +317,131 @@ export default function InteractiveHero() {
           </div>
         )}
 
-        {/* LEFT COLUMN: Personal intro + contact details + cursor instruction */}
+        {/* LEFT COLUMN: Personal intro + Quick Contact Actions + cursor instruction */}
         <div className="hidden lg:flex flex-col justify-center items-start w-1/4 z-30 pointer-events-auto pl-4">
           <motion.div
             initial={{ opacity: 0, x: -25 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="w-full max-w-[340px] rounded-3xl bg-white/75 backdrop-blur-2xl border border-white/90 shadow-[0_25px_60px_rgba(58,13,30,0.18)] p-5 relative overflow-hidden space-y-3.5"
+            className="hero-glass-card p-6 rounded-2xl max-w-xs w-full shadow-[0_20px_50px_rgba(77,22,47,0.12)]"
           >
-            {/* Subtle luxury ambient glow behind card */}
-            <div className="absolute -top-12 -right-12 w-28 h-28 bg-gradient-to-br from-roseDust-300/30 to-maroon-400/20 rounded-full blur-2xl pointer-events-none" />
-
-            {/* Header: Status pill + Name & Role */}
-            <div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 text-[10px] font-bold uppercase tracking-wider mb-2 shadow-2xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span>{t.hero.availablePill}</span>
-              </div>
-
-              <h1 className="text-2xl font-black text-slate-900 tracking-tight leading-none mb-1">
-                Yasmine Isakrouhen
-              </h1>
-              <p className="text-xs font-bold text-maroon-700">
-                {t.hero.role}
-              </p>
+            {/* Availability Pill */}
+            <div className="flex items-center gap-2 mb-2.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+              <span className="text-[11px] font-bold uppercase tracking-wider text-maroon-700">
+                {t.hero.availablePill}
+              </span>
             </div>
 
-            {/* Contact Pills Hub */}
-            <div className="pt-3 border-t border-roseDust-200/70 space-y-2">
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-maroon-800/80">
+            {/* Name & Role */}
+            <h1 className="text-2xl font-bold text-slate-900 leading-tight mb-1">
+              I'm Yasmine Isakrouhen
+            </h1>
+            <p className="text-xs font-semibold text-maroon-700 mb-4">
+              {t.hero.role}
+            </p>
+
+            {/* Quick Contact Hub (2x2 sleek frosted interactive chips) */}
+            <div className="pt-3.5 border-t border-roseDust-200/80 mb-3.5">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
                   {t.contact?.title || "Contact & Coordonnées"}
                 </span>
-                <span className="text-[9px] font-semibold text-roseDust-400 bg-roseDust-50 px-2 py-0.5 rounded-full border border-roseDust-200/60">
+                <span className="text-[9px] font-bold text-maroon-700 uppercase tracking-widest px-1.5 py-0.5 rounded bg-roseDust-100/70 border border-roseDust-200/60">
                   Direct
                 </span>
               </div>
 
-              {/* 1. Personal Email */}
-              <a 
-                href="mailto:isakrouhenyasmine@gmail.com"
-                className="flex items-center justify-between p-2 px-3 rounded-2xl bg-white/60 hover:bg-white border border-white/80 hover:border-maroon-300/80 shadow-xs hover:shadow-md transition-all duration-200 group"
-                title="Email Personnel"
-              >
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-[#2a0715] to-[#4d162f] text-roseDust-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-xs">
-                    <Mail size={13} />
+              <div className="grid grid-cols-2 gap-2">
+                {/* 1. Personal Email */}
+                <a
+                  href="mailto:isakrouhenyasmine@gmail.com"
+                  className="flex items-center gap-2 p-2 rounded-xl bg-white/70 hover:bg-white text-slate-800 hover:text-maroon-800 border border-white/80 shadow-2xs hover:shadow-xs transition-all duration-200 group"
+                  title="Email: isakrouhenyasmine@gmail.com"
+                >
+                  <div className="w-6 h-6 rounded-lg bg-roseDust-100 flex items-center justify-center text-maroon-700 shrink-0 group-hover:scale-105 transition-transform">
+                    <Mail size={12} />
                   </div>
                   <div className="min-w-0">
-                    <span className="text-[9px] font-extrabold uppercase tracking-wider text-maroon-700/80 block leading-none">
-                      {t.contact?.personalEmailLabel || "Email Personnel"}
+                    <span className="text-[9px] font-semibold text-slate-500 uppercase block leading-none">
+                      Perso
                     </span>
-                    <span className="text-[11px] font-bold text-slate-800 truncate block mt-0.5 group-hover:text-maroon-900">
-                      isakrouhenyasmine@gmail.com
+                    <span className="text-[11px] font-bold text-slate-800 block truncate group-hover:text-maroon-800">
+                      Email
                     </span>
                   </div>
-                </div>
-                <ExternalLink size={12} className="text-slate-400 group-hover:text-maroon-700 shrink-0 ml-1.5 opacity-50 group-hover:opacity-100 transition-opacity" />
-              </a>
+                </a>
 
-              {/* 2. University Email */}
-              <a 
-                href="mailto:Yasmine.Isakrouhen@emsi-edu.ma"
-                className="flex items-center justify-between p-2 px-3 rounded-2xl bg-white/60 hover:bg-white border border-white/80 hover:border-maroon-300/80 shadow-xs hover:shadow-md transition-all duration-200 group"
-                title="Email Universitaire (EMSI)"
-              >
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-[#2a0715] to-[#4d162f] text-roseDust-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-xs">
-                    <GraduationCap size={13} />
+                {/* 2. University Email */}
+                <a
+                  href="mailto:Yasmine.Isakrouhen@emsi-edu.ma"
+                  className="flex items-center gap-2 p-2 rounded-xl bg-white/70 hover:bg-white text-slate-800 hover:text-maroon-800 border border-white/80 shadow-2xs hover:shadow-xs transition-all duration-200 group"
+                  title="EMSI: Yasmine.Isakrouhen@emsi-edu.ma"
+                >
+                  <div className="w-6 h-6 rounded-lg bg-roseDust-100 flex items-center justify-center text-maroon-700 shrink-0 group-hover:scale-105 transition-transform">
+                    <GraduationCap size={12} />
                   </div>
                   <div className="min-w-0">
-                    <span className="text-[9px] font-extrabold uppercase tracking-wider text-maroon-700/80 block leading-none">
-                      {t.contact?.universityEmailLabel || "Email Universitaire"}
+                    <span className="text-[9px] font-semibold text-slate-500 uppercase block leading-none">
+                      EMSI
                     </span>
-                    <span className="text-[11px] font-bold text-slate-800 truncate block mt-0.5 group-hover:text-maroon-900">
-                      Yasmine.Isakrouhen@emsi-edu.ma
+                    <span className="text-[11px] font-bold text-slate-800 block truncate group-hover:text-maroon-800">
+                      Email
                     </span>
                   </div>
-                </div>
-                <ExternalLink size={12} className="text-slate-400 group-hover:text-maroon-700 shrink-0 ml-1.5 opacity-50 group-hover:opacity-100 transition-opacity" />
-              </a>
+                </a>
 
-              {/* 3. Phone Number */}
-              <a 
-                href="tel:+212632825077"
-                className="flex items-center justify-between p-2 px-3 rounded-2xl bg-white/60 hover:bg-white border border-white/80 hover:border-emerald-400 shadow-xs hover:shadow-md transition-all duration-200 group"
-                title="Appeler: +212 632 82 50 77"
-              >
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-700 text-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-xs">
-                    <Phone size={13} />
+                {/* 3. Phone */}
+                <a
+                  href="tel:+212632825077"
+                  className="flex items-center gap-2 p-2 rounded-xl bg-white/70 hover:bg-white text-slate-800 hover:text-emerald-700 border border-white/80 shadow-2xs hover:shadow-xs transition-all duration-200 group"
+                  title="Appeler: 0632825077 (+212 632 82 50 77)"
+                >
+                  <div className="w-6 h-6 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-700 shrink-0 group-hover:scale-105 transition-transform">
+                    <Phone size={12} />
                   </div>
                   <div className="min-w-0">
-                    <span className="text-[9px] font-extrabold uppercase tracking-wider text-emerald-800 block leading-none">
-                      {t.contact?.phoneLabel || "Téléphone"}
+                    <span className="text-[9px] font-semibold text-emerald-700 uppercase block leading-none">
+                      Appel
                     </span>
-                    <span className="text-[11px] font-bold text-slate-800 truncate block mt-0.5 group-hover:text-emerald-900">
-                      +212 632 82 50 77 <span className="text-[10px] text-slate-500 font-normal">(0632825077)</span>
+                    <span className="text-[10px] font-bold text-slate-800 block truncate group-hover:text-emerald-700">
+                      06 32 82 50 77
                     </span>
                   </div>
-                </div>
-                <ExternalLink size={12} className="text-slate-400 group-hover:text-emerald-700 shrink-0 ml-1.5 opacity-50 group-hover:opacity-100 transition-opacity" />
-              </a>
+                </a>
 
-              {/* 4. LinkedIn */}
-              <a 
-                href="https://www.linkedin.com/in/yasmine-isakrouhen/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between p-2 px-3 rounded-2xl bg-white/60 hover:bg-white border border-white/80 hover:border-[#0A66C2]/60 shadow-xs hover:shadow-md transition-all duration-200 group"
-                title="Profil LinkedIn"
-              >
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="w-7 h-7 rounded-xl bg-[#0A66C2] text-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-xs">
-                    <LinkedinIcon size={13} />
+                {/* 4. LinkedIn */}
+                <a
+                  href="https://www.linkedin.com/in/yasmine-isakrouhen/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 p-2 rounded-xl bg-white/70 hover:bg-white text-slate-800 hover:text-[#0A66C2] border border-white/80 shadow-2xs hover:shadow-xs transition-all duration-200 group"
+                  title="Profil LinkedIn"
+                >
+                  <div className="w-6 h-6 rounded-lg bg-sky-50 flex items-center justify-center text-[#0A66C2] shrink-0 group-hover:scale-105 transition-transform">
+                    <LinkedinIcon size={12} />
                   </div>
                   <div className="min-w-0">
-                    <span className="text-[9px] font-extrabold uppercase tracking-wider text-[#0A66C2] block leading-none">
-                      {t.contact?.linkedinLabel || "LinkedIn"}
+                    <span className="text-[9px] font-semibold text-[#0A66C2] uppercase block leading-none">
+                      Réseau
                     </span>
-                    <span className="text-[11px] font-bold text-slate-800 truncate block mt-0.5 group-hover:text-[#0A66C2]">
-                      yasmine-isakrouhen
+                    <span className="text-[11px] font-bold text-slate-800 block truncate group-hover:text-[#0A66C2]">
+                      LinkedIn
                     </span>
                   </div>
-                </div>
-                <ExternalLink size={12} className="text-slate-400 group-hover:text-[#0A66C2] shrink-0 ml-1.5 opacity-50 group-hover:opacity-100 transition-opacity" />
-              </a>
+                </a>
+              </div>
             </div>
 
-            {/* Bottom Interaction Cue */}
-            <div className="pt-2.5 border-t border-roseDust-200/60 flex items-center gap-2 text-slate-600">
-              <div className="w-5 h-5 rounded-md bg-white/80 border border-roseDust-200 flex items-center justify-center text-maroon-600 shrink-0 shadow-2xs animate-cursor-pulse">
-                <MousePointer size={11} />
+            {/* Interaction Cue matching original design */}
+            <div className="pt-3 border-t border-roseDust-200/80 flex items-center gap-2.5 text-xs text-slate-700">
+              <div className="w-6 h-6 rounded-lg bg-white shadow-2xs flex items-center justify-center text-maroon-600 animate-cursor-pulse">
+                <MousePointer size={12} />
               </div>
-              <p className="text-[10px] text-slate-500 font-medium truncate">
-                {t.hero.hoverSub}
-              </p>
+              <div>
+                <p className="font-semibold text-slate-900 text-[11px] leading-snug">{t.hero.callMePrompt}</p>
+                <p className="text-[9px] text-slate-500 font-normal">{t.hero.hoverSub}</p>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -470,7 +459,7 @@ export default function InteractiveHero() {
 
             {/* Mobile Contact Badges Bar */}
             <div className="flex flex-wrap items-center justify-center gap-2 pointer-events-auto">
-              <a 
+              <a
                 href="tel:+212632825077"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 text-maroon-900 text-[11px] font-bold shadow-sm border border-white/60 active:scale-95 transition-transform"
                 title="Appeler: 0632825077"
@@ -478,7 +467,7 @@ export default function InteractiveHero() {
                 <Phone size={12} className="text-maroon-600" />
                 <span>06 32 82 50 77</span>
               </a>
-              <a 
+              <a
                 href="mailto:isakrouhenyasmine@gmail.com"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 text-maroon-900 text-[11px] font-bold shadow-sm border border-white/60 active:scale-95 transition-transform"
                 title="Email Personnel"
@@ -486,7 +475,7 @@ export default function InteractiveHero() {
                 <Mail size={12} className="text-maroon-600" />
                 <span>Email</span>
               </a>
-              <a 
+              <a
                 href="https://www.linkedin.com/in/yasmine-isakrouhen/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -525,17 +514,17 @@ export default function InteractiveHero() {
                       x: isActive
                         ? 0
                         : stateKey === 'left'
-                        ? 5
-                        : stateKey === 'right'
-                        ? -5
-                        : 0,
+                          ? 5
+                          : stateKey === 'right'
+                            ? -5
+                            : 0,
                       rotate: isActive
                         ? 0
                         : stateKey === 'left'
-                        ? 0.5
-                        : stateKey === 'right'
-                        ? -0.5
-                        : 0,
+                          ? 0.5
+                          : stateKey === 'right'
+                            ? -0.5
+                            : 0,
                       zIndex: isActive ? 20 : isPrev ? 10 : 0,
                     }}
                     transition={{
@@ -575,27 +564,38 @@ export default function InteractiveHero() {
           </div>
         </div>
 
-        {/* RIGHT COLUMN: Contextual reaction message placeholder / Info badge */}
-        <div className="hidden lg:flex flex-col justify-center items-end w-1/4 z-30 pointer-events-none select-none pr-4">
+        {/* RIGHT COLUMN: Specialty & Engineering Highlights */}
+        <div className="hidden lg:flex flex-col justify-center items-end w-1/4 z-30 pointer-events-auto pr-4">
           <motion.div
             initial={{ opacity: 0, x: 25 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="hero-glass-card p-6 rounded-2xl max-w-xs text-right"
+            className="hero-glass-card p-6 rounded-2xl max-w-xs w-full text-right shadow-[0_20px_50px_rgba(77,22,47,0.12)]"
           >
-            <div className="text-xs uppercase tracking-widest text-slate-500 font-bold mb-1">
+            <div className="text-[11px] uppercase tracking-wider text-maroon-700 font-bold mb-2.5">
               {t.hero.specialtyBadge}
             </div>
-            <div className="text-lg font-bold text-maroon-700 mb-3">
+            <div className="text-xl font-bold text-slate-900 leading-tight mb-1">
               {t.hero.specialtyTitle}
             </div>
+            <p className="text-xs font-semibold text-maroon-700 mb-3">
+              EMSI Tanger • 2025 - 2027
+            </p>
             <p className="text-xs text-slate-600 leading-relaxed mb-4">
               {t.hero.specialtyDesc}
             </p>
-            <div className="inline-flex items-center gap-2 text-[11px] font-semibold text-maroon-600 bg-roseDust-100 px-3 py-1.5 rounded-lg border border-roseDust-200">
-              <span>{t.hero.specialtySchool.split(' • ')[0]}</span>
-              <span>•</span>
-              <span>{t.hero.specialtySchool.split(' • ')[1]}</span>
+
+            {/* Focus Pills matching the visual weight of the Left Card's divider section */}
+            <div className="pt-3.5 border-t border-roseDust-200/80 flex items-center justify-end gap-1.5 flex-wrap">
+              <span className="text-[10px] font-semibold text-slate-700 bg-white/70 px-2.5 py-1 rounded-lg border border-white/80 shadow-2xs">
+                Big Data
+              </span>
+              <span className="text-[10px] font-semibold text-slate-700 bg-white/70 px-2.5 py-1 rounded-lg border border-white/80 shadow-2xs">
+                LLM & RAG
+              </span>
+              <span className="text-[10px] font-semibold text-slate-700 bg-white/70 px-2.5 py-1 rounded-lg border border-white/80 shadow-2xs">
+                Computer Vision
+              </span>
             </div>
           </motion.div>
         </div>

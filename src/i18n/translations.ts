@@ -8,9 +8,12 @@ export interface Translations {
     skills: string;
     certifications: string;
     ariaLabel: string;
+    openMenu: string;
+    closeMenu: string;
   };
   hero: {
     availablePill: string;
+    introName: string;
     role: string;
     callMePrompt: string;
     hoverSub: string;
@@ -18,6 +21,8 @@ export interface Translations {
     leftZone: string;
     centerGreet: string;
     rightZone: string;
+    leftZoneMessage: string;
+    rightZoneMessage: string;
     greetingMessage: string;
     specialtyBadge: string;
     specialtyTitle: string;
@@ -26,6 +31,13 @@ export interface Translations {
     cvDownload: string;
     cvFile: string;
     exploreBtn: string;
+    quickContact: {
+      directBadge: string;
+      personalLabel: string;
+      emsiLabel: string;
+      callLabel: string;
+      networkLabel: string;
+    };
   };
   about: {
     badge: string;
@@ -37,6 +49,7 @@ export interface Translations {
     headlineHighlight: string;
     headlineEnd: string;
     bio: string;
+    domains: string[];
     metrics: {
       m1Val: string;
       m1Label: string;
@@ -64,17 +77,27 @@ export interface Translations {
     bento: {
       locLabel: string;
       locTitle: string;
+      locCity: string;
+      locCountryBadge: string;
+      locCoord: string;
       locDesc: string;
       eduLabel: string;
       eduTitle: string;
+      eduDegree: string;
       eduSchool: string;
       eduDesc: string;
+      eduSpecialty: string;
       langLabel: string;
       langTitle: string;
       langSub: string;
+      langSummary: string;
+      langEnName: string;
+      langFrName: string;
+      langArName: string;
       enLevel: string;
       frLevel: string;
       arLevel: string;
+      langFooter: string;
     };
   };
   projects: {
@@ -88,6 +111,7 @@ export interface Translations {
       type: string;
       tagline: string;
       description: string;
+      tags: string[];
       pipeline: Array<{
         step: string;
         name: string;
@@ -100,6 +124,7 @@ export interface Translations {
     badge: string;
     title: string;
     countBadge: string;
+    techMethodsLabel: string;
     projectScopeLabel: string;
     items: Array<{
       role: string;
@@ -107,6 +132,7 @@ export interface Translations {
       location: string;
       period: string;
       projectTitle: string;
+      tags: string[];
       description: string[];
     }>;
   };
@@ -118,6 +144,7 @@ export interface Translations {
     expertiseLabel: string;
     categories: Array<{
       title: string;
+      items: string[];
     }>;
   };
   certifications: {
@@ -139,6 +166,7 @@ export interface Translations {
     pfeBadge: string;
     contactBtn: string;
     copyright: string;
+    schoolTag: string;
   };
   contact: {
     title: string;
@@ -146,40 +174,54 @@ export interface Translations {
     personalEmailLabel: string;
     phoneLabel: string;
     linkedinLabel: string;
+    personalBadge: string;
+    locationBadge: string;
   };
 }
 
 export const TRANSLATIONS: Record<Language, Translations> = {
   fr: {
     nav: {
-      about: "About Me",
+      about: "À Propos",
       projects: "Projets",
       experience: "Expérience",
       skills: "Compétences",
       certifications: "Certifications",
       ariaLabel: "Navigation principale",
+      openMenu: "Ouvrir le menu",
+      closeMenu: "Fermer le menu",
     },
     hero: {
       availablePill: "PFE 2027 • DISPONIBLE",
+      introName: "Je suis Yasmine Isakrouhen",
       role: "Élève Ingénieure Big Data & IA",
-      callMePrompt: "Move cursor to call me !",
+      callMePrompt: "Bougez le curseur pour m'appeler !",
       hoverSub: "Survolez gauche, droite ou centre",
       mobileTap: "Touchez le personnage pour interagir !",
-      leftZone: "← Left Zone",
-      centerGreet: "• Center Greet •",
-      rightZone: "Right Zone →",
+      leftZone: "← Zone Gauche",
+      centerGreet: "• Accueil •",
+      rightZone: "Zone Droite →",
+      leftZoneMessage: "Y a-t-il quelqu'un à gauche ?",
+      rightZoneMessage: "Y a-t-il quelqu'un à droite ?",
       greetingMessage: "Enchantée ! Bienvenue sur mon portfolio 👋",
       specialtyBadge: "Spécialité",
       specialtyTitle: "Data Engineering & IA",
-      specialtyDesc: "Pipeline de données distribués, Computer Vision & architectures LLM/RAG scalables.",
+      specialtyDesc: "Pipelines de données distribués, Computer Vision & architectures LLM/RAG scalables.",
       specialtySchool: "EMSI Tanger • 2025 - 2027",
       cvDownload: "CV",
       cvFile: "ISAKROUHEN_Yasmine_CV.pdf",
-      exploreBtn: "CHECK OUT THE PORTFOLIO",
+      exploreBtn: "DÉCOUVRIR LE PORTFOLIO",
+      quickContact: {
+        directBadge: "Direct",
+        personalLabel: "Perso",
+        emsiLabel: "EMSI",
+        callLabel: "Appel",
+        networkLabel: "Réseau",
+      },
     },
     about: {
       badge: "Profil & Parcours",
-      title: "About Me",
+      title: "À Propos",
       statusBadge: "En quête d'un défi PFE 2027",
       studentBadge: "Élève Ingénieure 5ème Année",
       cycle: "Cycle d'Ingénieur 2025 - 2027",
@@ -187,6 +229,13 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       headlineHighlight: "intelligents & scalables",
       headlineEnd: "orientés impact.",
       bio: "Future ingénieure en Big Data & Intelligence Artificielle à l'EMSI Tanger, spécialisée en Computer Vision et ingénierie des données scalables. Passionnée par la conception de systèmes autonomes, de pipelines de traitement massif et de modèles d'IA générative, je recherche un stage PFE de 6 mois pour relever des défis techniques complexes et créer une valeur tangible.",
+      domains: [
+        "Computer Vision & YOLOv8",
+        "Pipelines ETL & Streaming (Spark, Kafka)",
+        "Architectures LLM & RAG",
+        "Deep Learning & MLOps",
+        "Microservices & Cloud",
+      ],
       metrics: {
         m1Val: "5ème",
         m1Label: "Année d'Ingénierie",
@@ -201,7 +250,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       opportunity: {
         available: "Disponible",
         objectiveLabel: "OBJECTIF CARRIÈRE",
-        title: "Open to Opportunities",
+        title: "Ouverte aux opportunités",
         subtitle: "Stage PFE de 6 mois • Projets IA & Big Data",
         startDateLabel: "Date de début",
         startDateVal: "À partir du 1er Février 2027",
@@ -213,18 +262,28 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       },
       bento: {
         locLabel: "LOCALISATION",
-        locTitle: "Based in",
+        locTitle: "Basée à",
+        locCity: "Tanger, Maroc",
+        locCountryBadge: "Maroc • Tanger",
+        locCoord: "35.7595° N, 5.8340° W • Hybride & Sur Site",
         locDesc: "Bassin technologique dynamique au carrefour de l'Europe et de l'Afrique. Ouverte aux opportunités à Tanger, Casablanca, Rabat ou à l'international.",
         eduLabel: "CURSUS UNIVERSITAIRE",
-        eduTitle: "Studying",
+        eduTitle: "Formation",
+        eduDegree: "Cycle d'Ingénieur",
         eduSchool: "École Marocaine des Sciences de l'Ingénieur (EMSI Tanger)",
         eduDesc: "Informatique & Réseaux, filière d'excellence en IA & Big Data. Licence préalable en Informatique-Mathématiques (Faculté des Sciences).",
+        eduSpecialty: "Spécialité IA, Computer Vision & Big Data",
         langLabel: "AISANCE LINGUISTIQUE",
-        langTitle: "Languages",
+        langTitle: "Langues",
         langSub: "Trilingue",
-        enLevel: "Fluent (C1)",
+        langSummary: "Anglais, Français, Arabe",
+        langEnName: "Anglais",
+        langFrName: "Français",
+        langArName: "Arabe",
+        enLevel: "Courant (C1)",
         frLevel: "Bilingue",
         arLevel: "Langue maternelle",
+        langFooter: "Communication fluide en contexte multiculturel",
       },
     },
     projects: {
@@ -240,6 +299,14 @@ export const TRANSLATIONS: Record<Language, Translations> = {
           tagline: "Plateforme distribuée multi-agents & négociation intelligente",
           description:
             "Conception et développement d'une plateforme de marché autonome pilotée par l'IA cognitive et un moteur de négociation multi-agents (JADE), orchestrée via des pipelines de données massives et une architecture microservices scalable.",
+          tags: [
+            "JADE Framework",
+            "Apache Kafka",
+            "Apache Airflow",
+            "Airbyte",
+            "Microservices",
+            "Docker",
+          ],
           pipeline: [
             {
               step: "01",
@@ -273,6 +340,14 @@ export const TRANSLATIONS: Record<Language, Translations> = {
           tagline: "Système de Question-Réponse Augmenté par Récupération (RAG)",
           description:
             "Conception d'un système RAG exploitant des LLM open-source pour l'interrogation sémantique de bases documentaires d'entreprise, articulé autour de pipelines de vectorisation et de recherche textuelle avancées.",
+          tags: [
+            "Architecture RAG",
+            "LLM Open-Source",
+            "LangChain",
+            "ChromaDB",
+            "Hugging Face",
+            "Embeddings",
+          ],
           pipeline: [
             {
               step: "01",
@@ -306,6 +381,14 @@ export const TRANSLATIONS: Record<Language, Translations> = {
           tagline: "Plateforme web de recrutement & tri automatisé des candidatures",
           description:
             "Conception et développement d'une plateforme web complète de gestion des candidatures intégrant un module d'intelligence artificielle pour le tri automatisé des CV et des filtres de sélection avancés pour optimiser le recrutement RH.",
+          tags: [
+            "Web Full-Stack",
+            "Traitement NLP",
+            "Matching Sémantique",
+            "Filtres Avancés",
+            "React",
+            "Django",
+          ],
           pipeline: [
             {
               step: "01",
@@ -339,6 +422,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       badge: "IMMERSION PROFESSIONNELLE",
       title: "Expériences Professionnelles",
       countBadge: "3 Stages en Entreprise",
+      techMethodsLabel: "Technologies & Méthodes :",
       projectScopeLabel: "Projet & Périmètre :",
       items: [
         {
@@ -347,6 +431,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
           location: "Tanger, Maroc",
           period: "07/2026 - 08/2026",
           projectTitle: "Inspection ferroviaire automatisée",
+          tags: ["YOLOv8", "PaddleOCR", "Python", "Computer Vision"],
           description: [
             "Développement et optimisation de modèles YOLOv8 pour la détection automatisée d'anomalies ferroviaires.",
             "Mise en place de pipelines de traitement d'images et extraction de texte technique avec PaddleOCR.",
@@ -358,6 +443,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
           location: "Tanger, Maroc",
           period: "08/2025",
           projectTitle: "Suivi des KPI de production & modélisation",
+          tags: ["SQL Avancé", "Power BI", "DAX", "KPI Industriels"],
           description: [
             "Extraction et analyse de données opérationnelles via des requêtes SQL avancées sur les bases de production.",
             "Création de tableaux de bord Power BI interactifs pour le suivi en temps réel des KPI industriels (TRS, cadence, rebuts).",
@@ -369,6 +455,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
           location: "Tanger, Maroc",
           period: "08/2024",
           projectTitle: "Tableaux de bord opérationnels & contrôle qualité",
+          tags: ["Power BI", "Nettoyage de Données", "Contrôle Qualité"],
           description: [
             "Nettoyage, audit et structuration des flux de données opérationnelles de contrôle qualité.",
             "Conception de dashboards Power BI pour le suivi des indicateurs de conformité et l'optimisation des opérations.",
@@ -383,11 +470,72 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       technologiesCount: "technologies",
       expertiseLabel: "Expertise",
       categories: [
-        { title: "Ingénierie IA & Computer Vision" },
-        { title: "Big Data & Streaming" },
-        { title: "Data, BI & Bases de Données" },
-        { title: "Développement Full-Stack & Logiciel" },
-        { title: "DevOps & Virtualisation" },
+        {
+          title: "Ingénierie IA & Computer Vision",
+          items: [
+            "YOLOv8",
+            "PaddleOCR",
+            "LLM & RAG",
+            "LangChain",
+            "Hugging Face",
+            "Deep Learning",
+            "TensorFlow",
+            "PyTorch",
+            "Scikit-learn",
+          ],
+        },
+        {
+          title: "Big Data & Streaming",
+          items: [
+            "Apache Spark",
+            "Apache Kafka",
+            "ChromaDB",
+            "Apache Airflow",
+            "Airbyte",
+            "Vectorisation",
+            "Pipelines ETL",
+          ],
+        },
+        {
+          title: "Data, BI & Bases de Données",
+          items: [
+            "Power BI",
+            "Tableau",
+            "PostgreSQL",
+            "MySQL",
+            "MongoDB",
+            "Redis",
+            "Snowflake",
+            "SQL Server",
+            "Excel Avancé",
+          ],
+        },
+        {
+          title: "Développement Full-Stack & Logiciel",
+          items: [
+            "Python",
+            "Java",
+            "Spring Boot",
+            "React",
+            "Django",
+            ".NET",
+            "C",
+            "PHP",
+            "JavaScript",
+            "HTML / CSS",
+          ],
+        },
+        {
+          title: "DevOps & Virtualisation",
+          items: [
+            "Docker",
+            "Git",
+            "Linux",
+            "Proxmox VE",
+            "Conteneurisation",
+            "Microservices",
+          ],
+        },
       ],
     },
     certifications: {
@@ -425,7 +573,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
           badge: "Base de Données",
         },
         {
-          title: "English Language Proficiency",
+          title: "Maîtrise de la Langue Anglaise",
           issuer: "American Language Center",
           year: "2024",
           badge: "C1 Avancé",
@@ -437,13 +585,16 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       pfeBadge: "PFE 2027 Disponible",
       contactBtn: "Me Contacter",
       copyright: "© 2026 Yasmine Isakrouhen • Tous droits réservés",
+      schoolTag: "EMSI Tanger • Big Data & IA 2025-2027",
     },
     contact: {
       title: "Contact & Coordonnées",
       universityEmailLabel: "Email Universitaire",
       personalEmailLabel: "Email Personnel",
-      phoneLabel: "Téléphone",
+      phoneLabel: "Numéro Téléphone",
       linkedinLabel: "Profil LinkedIn",
+      personalBadge: "Personnel",
+      locationBadge: "Maroc",
     },
   },
   en: {
@@ -454,9 +605,12 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       skills: "Skills",
       certifications: "Certifications",
       ariaLabel: "Main navigation",
+      openMenu: "Open menu",
+      closeMenu: "Close menu",
     },
     hero: {
       availablePill: "PFE 2027 • AVAILABLE",
+      introName: "I'm Yasmine Isakrouhen",
       role: "Big Data & AI Engineering Student",
       callMePrompt: "Move cursor to call me !",
       hoverSub: "Hover left, right, or center",
@@ -464,6 +618,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       leftZone: "← Left Zone",
       centerGreet: "• Center Greet •",
       rightZone: "Right Zone →",
+      leftZoneMessage: "Anyone here on the left?",
+      rightZoneMessage: "Anyone here on the right?",
       greetingMessage: "Pleased to meet you! Welcome to my portfolio 👋",
       specialtyBadge: "Specialization",
       specialtyTitle: "Data Engineering & AI",
@@ -472,6 +628,13 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       cvDownload: "Resume",
       cvFile: "Yasmine_isakrouhen_resume.pdf",
       exploreBtn: "CHECK OUT THE PORTFOLIO",
+      quickContact: {
+        directBadge: "Direct",
+        personalLabel: "Personal",
+        emsiLabel: "EMSI",
+        callLabel: "Call",
+        networkLabel: "Network",
+      },
     },
     about: {
       badge: "PROFILE & BACKGROUND",
@@ -483,6 +646,13 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       headlineHighlight: "intelligent & scalable",
       headlineEnd: "impact-driven systems to life.",
       bio: "Future engineer in Big Data & Artificial Intelligence at EMSI Tangier, specialized in Computer Vision and scalable data engineering. Passionate about designing autonomous systems, mass data processing pipelines, and generative AI models, I am seeking a 6-month graduation internship (PFE) to tackle complex technical challenges and create tangible value.",
+      domains: [
+        "Computer Vision & YOLOv8",
+        "ETL & Streaming Pipelines (Spark, Kafka)",
+        "LLM & RAG Architectures",
+        "Deep Learning & MLOps",
+        "Microservices & Cloud",
+      ],
       metrics: {
         m1Val: "5th",
         m1Label: "Engineering Year",
@@ -510,17 +680,27 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       bento: {
         locLabel: "LOCATION",
         locTitle: "Based in",
+        locCity: "Tangier, Morocco",
+        locCountryBadge: "Morocco • Tangier",
+        locCoord: "35.7595° N, 5.8340° W • Hybrid & On-site",
         locDesc: "Dynamic technology hub at the crossroads of Europe and Africa. Open to opportunities in Tangier, Casablanca, Rabat, or worldwide.",
         eduLabel: "ACADEMIC BACKGROUND",
         eduTitle: "Studying",
+        eduDegree: "Engineering Program",
         eduSchool: "Moroccan School of Engineering Sciences (EMSI Tangier)",
         eduDesc: "Computer Science & Networks, major in AI & Big Data. Prior Bachelor's Degree in Mathematics & Computer Science (Faculty of Sciences).",
+        eduSpecialty: "Specialization: AI, Computer Vision & Big Data",
         langLabel: "LANGUAGE PROFICIENCY",
         langTitle: "Languages",
         langSub: "Trilingual",
+        langSummary: "English, French, Arabic",
+        langEnName: "English",
+        langFrName: "French",
+        langArName: "Arabic",
         enLevel: "Fluent (C1)",
         frLevel: "Bilingual",
         arLevel: "Native Language",
+        langFooter: "Fluent communication in multicultural environments",
       },
     },
     projects: {
@@ -536,6 +716,14 @@ export const TRANSLATIONS: Record<Language, Translations> = {
           tagline: "Distributed Multi-Agent Platform & Intelligent Negotiation",
           description:
             "Design and development of an autonomous marketplace platform driven by cognitive AI and a multi-agent negotiation engine (JADE), orchestrated via mass data pipelines and a scalable microservices architecture.",
+          tags: [
+            "JADE Framework",
+            "Apache Kafka",
+            "Apache Airflow",
+            "Airbyte",
+            "Microservices",
+            "Docker",
+          ],
           pipeline: [
             {
               step: "01",
@@ -569,6 +757,14 @@ export const TRANSLATIONS: Record<Language, Translations> = {
           tagline: "Retrieval-Augmented Generation (RAG) Question-Answering System",
           description:
             "Design of a RAG system leveraging open-source LLMs for semantic querying of enterprise document repositories, built around advanced vectorization and text search pipelines.",
+          tags: [
+            "RAG Architecture",
+            "Open-Source LLMs",
+            "LangChain",
+            "ChromaDB",
+            "Hugging Face",
+            "Embeddings",
+          ],
           pipeline: [
             {
               step: "01",
@@ -602,6 +798,14 @@ export const TRANSLATIONS: Record<Language, Translations> = {
           tagline: "Recruitment Web Platform & Automated Candidate Screening",
           description:
             "Design and development of a full-fledged web application for recruitment management featuring an AI module for automated resume parsing and intelligent semantic filtering to optimize HR talent acquisition.",
+          tags: [
+            "Full-Stack Web",
+            "NLP Processing",
+            "Semantic Matching",
+            "Advanced Filters",
+            "React",
+            "Django",
+          ],
           pipeline: [
             {
               step: "01",
@@ -635,6 +839,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       badge: "PROFESSIONAL IMMERSION",
       title: "Professional Experience",
       countBadge: "3 Company Internships",
+      techMethodsLabel: "Technologies & Methods:",
       projectScopeLabel: "Project & Scope:",
       items: [
         {
@@ -643,6 +848,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
           location: "Tangier, Morocco",
           period: "07/2026 - 08/2026",
           projectTitle: "Automated Railway Inspection",
+          tags: ["YOLOv8", "PaddleOCR", "Python", "Computer Vision"],
           description: [
             "Development and optimization of YOLOv8 models for automated railway anomaly detection.",
             "Implementation of image processing pipelines and technical text extraction with PaddleOCR.",
@@ -654,6 +860,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
           location: "Tangier, Morocco",
           period: "08/2025",
           projectTitle: "Production KPI Monitoring & Modeling",
+          tags: ["Advanced SQL", "Power BI", "DAX", "Industrial KPIs"],
           description: [
             "Extraction and analysis of operational data through advanced SQL queries on production databases.",
             "Development of interactive Power BI dashboards for real-time industrial KPI monitoring (OEE, output rates, scrap).",
@@ -665,6 +872,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
           location: "Tangier, Morocco",
           period: "08/2024",
           projectTitle: "Operational Dashboards & Quality Control",
+          tags: ["Power BI", "Data Cleaning", "Quality Control"],
           description: [
             "Data cleansing, auditing, and structuring of quality-control operational data streams.",
             "Design of Power BI dashboards for compliance metric tracking and operational process optimization.",
@@ -679,11 +887,72 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       technologiesCount: "technologies",
       expertiseLabel: "Expertise",
       categories: [
-        { title: "AI Engineering & Computer Vision" },
-        { title: "Big Data & Streaming" },
-        { title: "Data, BI & Databases" },
-        { title: "Full-Stack & Software Development" },
-        { title: "DevOps & Virtualization" },
+        {
+          title: "AI Engineering & Computer Vision",
+          items: [
+            "YOLOv8",
+            "PaddleOCR",
+            "LLM & RAG",
+            "LangChain",
+            "Hugging Face",
+            "Deep Learning",
+            "TensorFlow",
+            "PyTorch",
+            "Scikit-learn",
+          ],
+        },
+        {
+          title: "Big Data & Streaming",
+          items: [
+            "Apache Spark",
+            "Apache Kafka",
+            "ChromaDB",
+            "Apache Airflow",
+            "Airbyte",
+            "Vectorization",
+            "ETL Pipelines",
+          ],
+        },
+        {
+          title: "Data, BI & Databases",
+          items: [
+            "Power BI",
+            "Tableau",
+            "PostgreSQL",
+            "MySQL",
+            "MongoDB",
+            "Redis",
+            "Snowflake",
+            "SQL Server",
+            "Advanced Excel",
+          ],
+        },
+        {
+          title: "Full-Stack & Software Development",
+          items: [
+            "Python",
+            "Java",
+            "Spring Boot",
+            "React",
+            "Django",
+            ".NET",
+            "C",
+            "PHP",
+            "JavaScript",
+            "HTML / CSS",
+          ],
+        },
+        {
+          title: "DevOps & Virtualization",
+          items: [
+            "Docker",
+            "Git",
+            "Linux",
+            "Proxmox VE",
+            "Containerization",
+            "Microservices",
+          ],
+        },
       ],
     },
     certifications: {
@@ -733,6 +1002,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       pfeBadge: "PFE 2027 Available",
       contactBtn: "Contact Me",
       copyright: "© 2026 Yasmine Isakrouhen • All rights reserved",
+      schoolTag: "EMSI Tangier • Big Data & AI 2025-2027",
     },
     contact: {
       title: "Contact & Information",
@@ -740,6 +1010,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       personalEmailLabel: "Personal Email",
       phoneLabel: "Phone",
       linkedinLabel: "LinkedIn Profile",
+      personalBadge: "Personal",
+      locationBadge: "Morocco",
     },
   },
 };

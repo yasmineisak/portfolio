@@ -35,40 +35,16 @@ interface ProjectDisplayItem {
 const PROJECT_CONFIGS = [
   {
     icon: Bot,
-    tags: [
-      "JADE Framework",
-      "Apache Kafka",
-      "Apache Airflow",
-      "Airbyte",
-      "Microservices",
-      "Docker",
-    ],
     gradient: "from-maroon-600/25 via-maroon-800/10 to-transparent",
     glow: "rgba(140, 45, 86, 0.35)",
   },
   {
     icon: Layers,
-    tags: [
-      "RAG Architecture",
-      "LLM Open-Source",
-      "LangChain",
-      "ChromaDB",
-      "Hugging Face",
-      "Embeddings",
-    ],
     gradient: "from-roseDust-400/20 via-maroon-700/10 to-transparent",
     glow: "rgba(215, 142, 160, 0.35)",
   },
   {
     icon: FileText,
-    tags: [
-      "Full-Stack Web",
-      "Traitement NLP",
-      "Matching Sémantique",
-      "Filtres Avancés",
-      "React",
-      "Django",
-    ],
     gradient: "from-rose-500/20 via-maroon-800/10 to-transparent",
     glow: "rgba(244, 63, 94, 0.3)",
   },
@@ -244,7 +220,7 @@ export default function Projects() {
   const projects: ProjectDisplayItem[] = t.projects.items.map((item, idx) => ({
     ...item,
     icon: PROJECT_CONFIGS[idx]?.icon || Bot,
-    tags: PROJECT_CONFIGS[idx]?.tags || [],
+    tags: item.tags || [],
     gradient: PROJECT_CONFIGS[idx]?.gradient || "from-maroon-600/25 via-maroon-800/10 to-transparent",
     glow: PROJECT_CONFIGS[idx]?.glow || "rgba(140, 45, 86, 0.35)",
   }));

@@ -20,9 +20,9 @@ export default function AboutMe() {
   const { t } = useLanguage();
 
   const LANGUAGES_DATA = [
-    { name: "English", code: "EN", level: t.about.bento.enLevel, percent: 90 },
-    { name: "French", code: "FR", level: t.about.bento.frLevel, percent: 95 },
-    { name: "Arabic", code: "AR", level: t.about.bento.arLevel, percent: 100 },
+    { name: t.about.bento.langEnName, code: "EN", level: t.about.bento.enLevel, percent: 90 },
+    { name: t.about.bento.langFrName, code: "FR", level: t.about.bento.frLevel, percent: 95 },
+    { name: t.about.bento.langArName, code: "AR", level: t.about.bento.arLevel, percent: 100 },
   ];
 
   const KEY_METRICS = [
@@ -101,13 +101,7 @@ export default function AboutMe() {
 
             {/* Core Domain Badges */}
             <div className="flex flex-wrap gap-2 mb-8">
-              {[
-                "Computer Vision & YOLOv8",
-                "Pipelines ETL & Streaming (Spark, Kafka)",
-                "Architectures LLM & RAG",
-                "Deep Learning & MLOps",
-                "Microservices & Cloud"
-              ].map((domain, i) => (
+              {t.about.domains.map((domain, i) => (
                 <span
                   key={i}
                   className="px-3 py-1 rounded-xl bg-white/80 border border-slate-200/90 text-maroon-900 text-xs font-semibold shadow-xs hover:border-roseDust-300 hover:bg-roseDust-50/50 transition-colors"
@@ -217,7 +211,7 @@ export default function AboutMe() {
                 <MapPin size={22} />
               </div>
               <span className="text-xs font-bold text-maroon-700 bg-roseDust-50 px-3 py-1 rounded-full border border-roseDust-200/80">
-                Maroc • Tanger
+                {t.about.bento.locCountryBadge}
               </span>
             </div>
 
@@ -228,7 +222,7 @@ export default function AboutMe() {
               {t.about.bento.locTitle}
             </h4>
             <p className="text-base font-extrabold text-maroon-800 mb-2">
-              Tangier, Morocco
+              {t.about.bento.locCity}
             </p>
             <p className="text-xs text-slate-600 leading-relaxed font-medium">
               {t.about.bento.locDesc}
@@ -237,7 +231,7 @@ export default function AboutMe() {
 
           <div className="mt-5 pt-4 border-t border-slate-200/60 flex items-center gap-2 text-xs text-slate-500 font-medium">
             <Compass size={14} className="text-maroon-600" />
-            <span>35.7595° N, 5.8340° W • Hybride & Sur Site</span>
+            <span>{t.about.bento.locCoord}</span>
           </div>
         </motion.div>
 
@@ -266,7 +260,7 @@ export default function AboutMe() {
               {t.about.bento.eduTitle}
             </h4>
             <p className="text-base font-extrabold text-maroon-800 mb-1">
-              Engineering Program
+              {t.about.bento.eduDegree}
             </p>
             <p className="text-xs font-bold text-slate-700 mb-2">
               {t.about.bento.eduSchool}
@@ -278,7 +272,7 @@ export default function AboutMe() {
 
           <div className="mt-5 pt-4 border-t border-slate-200/60 flex items-center gap-2 text-xs text-slate-500 font-medium">
             <Award size={14} className="text-maroon-600" />
-            <span>Spécialité IA, Computer Vision & Big Data</span>
+            <span>{t.about.bento.eduSpecialty}</span>
           </div>
         </motion.div>
 
@@ -307,7 +301,7 @@ export default function AboutMe() {
               {t.about.bento.langTitle}
             </h4>
             <p className="text-base font-extrabold text-maroon-800 mb-4">
-              English, French, Arabic
+              {t.about.bento.langSummary}
             </p>
 
             {/* Language proficiency progress bars */}
@@ -338,7 +332,7 @@ export default function AboutMe() {
 
           <div className="mt-5 pt-4 border-t border-slate-200/60 flex items-center gap-2 text-xs text-slate-500 font-medium">
             <Globe2 size={14} className="text-maroon-600" />
-            <span>Communication fluide en contexte multiculturel</span>
+            <span>{t.about.bento.langFooter}</span>
           </div>
         </motion.div>
 

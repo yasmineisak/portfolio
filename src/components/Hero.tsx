@@ -58,7 +58,7 @@ export default function Hero() {
           className="glass-card p-10 md:p-16 max-w-4xl mx-auto backdrop-blur-md bg-surface/30"
         >
           <div className="inline-block px-5 py-2 mb-8 rounded-full bg-primary/20 border border-primary/30 text-primary font-semibold text-sm shadow-[0_0_15px_rgba(139,92,246,0.3)]">
-            Disponible: 1er Février 2027 (PFE - 6 Mois)
+            {t.about.opportunity.subtitle}
           </div>
           
           <h1 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 tracking-tight mb-6">
@@ -66,12 +66,12 @@ export default function Hero() {
           </h1>
           
           <p className="text-xl md:text-2xl text-slate-300 font-light mb-10">
-            Élève Ingénieure <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold">Big Data & IA</span> (5ème année)
+            {t.hero.role}
           </p>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-slate-400 mb-12">
             <div className="flex items-center gap-2 hover:text-white transition-colors">
-              <MapPin size={18} className="text-secondary" /> Tanger, Maroc
+              <MapPin size={18} className="text-secondary" /> {t.about.bento.locCity}
             </div>
             <div className="hidden md:block text-slate-600">•</div>
             <div className="flex items-center gap-2 hover:text-white transition-colors">

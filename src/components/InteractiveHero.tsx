@@ -116,7 +116,7 @@ export default function InteractiveHero() {
 
     const executeLeft = () => {
       changeState('left');
-      setContextMessage('Anyone here on the left?');
+      setContextMessage(t.hero.leftZoneMessage);
 
       timeoutRef.current = setTimeout(() => {
         changeState('idle');
@@ -132,7 +132,7 @@ export default function InteractiveHero() {
     } else {
       executeLeft();
     }
-  }, [changeState, clearAllTimers]);
+  }, [changeState, clearAllTimers, t]);
 
   // Right Zone Handler: if coming from left, naturally turns across center first
   const handleRightZone = useCallback(() => {
@@ -143,7 +143,7 @@ export default function InteractiveHero() {
 
     const executeRight = () => {
       changeState('right');
-      setContextMessage('Anyone here on the right?');
+      setContextMessage(t.hero.rightZoneMessage);
 
       timeoutRef.current = setTimeout(() => {
         changeState('idle');
@@ -159,7 +159,7 @@ export default function InteractiveHero() {
     } else {
       executeRight();
     }
-  }, [changeState, clearAllTimers]);
+  }, [changeState, clearAllTimers, t]);
 
   // Center Zone Handler: looks forward immediately; only waves if hovering
   const handleCenterZone = useCallback(() => {
@@ -335,7 +335,7 @@ export default function InteractiveHero() {
 
             {/* Name & Role */}
             <h1 className="text-2xl font-bold text-slate-900 leading-tight mb-1">
-              I'm Yasmine Isakrouhen
+              {t.hero.introName}
             </h1>
             <p className="text-xs font-semibold text-maroon-700 mb-4">
               {t.hero.role}
@@ -348,7 +348,7 @@ export default function InteractiveHero() {
                   {t.contact?.title || "Contact & Coordonnées"}
                 </span>
                 <span className="text-[9px] font-bold text-maroon-700 uppercase tracking-widest px-1.5 py-0.5 rounded bg-roseDust-100/70 border border-roseDust-200/60">
-                  Direct
+                  {t.hero.quickContact.directBadge}
                 </span>
               </div>
 
@@ -364,7 +364,7 @@ export default function InteractiveHero() {
                   </div>
                   <div className="min-w-0">
                     <span className="text-[9px] font-semibold text-slate-500 uppercase block leading-none">
-                      Perso
+                      {t.hero.quickContact.personalLabel}
                     </span>
                     <span className="text-[11px] font-bold text-slate-800 block truncate group-hover:text-maroon-800">
                       Email
@@ -383,7 +383,7 @@ export default function InteractiveHero() {
                   </div>
                   <div className="min-w-0">
                     <span className="text-[9px] font-semibold text-slate-500 uppercase block leading-none">
-                      EMSI
+                      {t.hero.quickContact.emsiLabel}
                     </span>
                     <span className="text-[11px] font-bold text-slate-800 block truncate group-hover:text-maroon-800">
                       Email
@@ -402,7 +402,7 @@ export default function InteractiveHero() {
                   </div>
                   <div className="min-w-0">
                     <span className="text-[9px] font-semibold text-emerald-700 uppercase block leading-none">
-                      Appel
+                      {t.hero.quickContact.callLabel}
                     </span>
                     <span className="text-[10px] font-bold text-slate-800 block truncate group-hover:text-emerald-700">
                       06 32 82 50 77
@@ -423,7 +423,7 @@ export default function InteractiveHero() {
                   </div>
                   <div className="min-w-0">
                     <span className="text-[9px] font-semibold text-[#0A66C2] uppercase block leading-none">
-                      Réseau
+                      {t.hero.quickContact.networkLabel}
                     </span>
                     <span className="text-[11px] font-bold text-slate-800 block truncate group-hover:text-[#0A66C2]">
                       LinkedIn
@@ -451,7 +451,7 @@ export default function InteractiveHero() {
           {/* Mobile intro card (visible on small screens) */}
           <div className="lg:hidden w-full text-center mb-3 px-4">
             <span className="inline-block px-3 py-1 rounded-full bg-white/70 text-maroon-700 text-xs font-bold mb-2 shadow-sm">
-              I'm Yasmine Isakrouhen
+              {t.hero.introName}
             </span>
             <p className="text-xs text-roseDust-200 font-medium mb-3">
               {t.hero.mobileTap}
@@ -579,7 +579,7 @@ export default function InteractiveHero() {
               {t.hero.specialtyTitle}
             </div>
             <p className="text-xs font-semibold text-maroon-700 mb-3">
-              EMSI Tanger • 2025 - 2027
+              {t.hero.specialtySchool}
             </p>
             <p className="text-xs text-slate-600 leading-relaxed mb-4">
               {t.hero.specialtyDesc}

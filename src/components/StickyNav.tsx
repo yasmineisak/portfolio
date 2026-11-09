@@ -178,7 +178,7 @@ export default function StickyNav() {
 
             <button
               onClick={() => setIsMenuOpen((prev) => !prev)}
-              aria-label={isMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+              aria-label={isMenuOpen ? t.nav.closeMenu : t.nav.openMenu}
               aria-expanded={isMenuOpen}
               className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 active:scale-90 border border-white/20 flex items-center justify-center text-white transition-all focus:outline-none"
             >

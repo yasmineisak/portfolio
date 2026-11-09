@@ -37,8 +37,12 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   useEffect(() => {
-    // Sync document html lang attribute
+    // Sync document html lang attribute and page title
     document.documentElement.lang = language;
+    document.title =
+      language === 'fr'
+        ? 'Yasmine Isakrouhen | Portfolio Ingénierie Big Data & IA'
+        : 'Yasmine Isakrouhen | Big Data & AI Engineering Portfolio';
   }, [language]);
 
   const value = {

@@ -99,7 +99,7 @@ function PortfolioContent() {
                     <Mail size={18} />
                   </div>
                   <span className="text-[10px] font-bold text-roseDust-300/80 uppercase tracking-wider px-2 py-0.5 rounded bg-white/5 border border-white/10">
-                    Personnel
+                    {t.contact?.personalBadge || "Personnel"}
                   </span>
                 </div>
                 <div>
@@ -145,7 +145,7 @@ function PortfolioContent() {
                     <Phone size={18} />
                   </div>
                   <span className="text-[10px] font-bold text-roseDust-300/80 uppercase tracking-wider px-2 py-0.5 rounded bg-white/5 border border-white/10">
-                    Maroc
+                    {t.contact?.locationBadge || "Maroc"}
                   </span>
                 </div>
                 <div>
@@ -189,7 +189,7 @@ function PortfolioContent() {
               {t.footer.copyright}
             </p>
             <p className="text-[11px] text-roseDust-400/60 font-mono">
-              EMSI Tanger • Big Data & IA 2025-2027
+              {t.footer.schoolTag}
             </p>
           </div>
         </div>

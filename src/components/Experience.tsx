@@ -6,28 +6,25 @@ const EXP_METADATA = [
   {
     icon: Cpu,
     glow: "from-maroon-600/30 via-roseDust-400/10",
-    tags: ["YOLOv8", "PaddleOCR", "Python", "Computer Vision"],
   },
   {
     icon: Database,
     glow: "from-maroon-700/30 via-roseDust-500/10",
-    tags: ["SQL Avancé", "Power BI", "DAX", "KPI Industriels"],
   },
   {
     icon: BarChart3,
     glow: "from-maroon-600/30 via-roseDust-400/10",
-    tags: ["Power BI", "Data Cleaning", "Contrôle Qualité"],
   },
 ];
 
 export default function Experience() {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
 
   const experiences = t.experience.items.map((item, idx) => ({
     ...item,
     icon: EXP_METADATA[idx]?.icon || Briefcase,
     glow: EXP_METADATA[idx]?.glow || "from-maroon-600/30 via-roseDust-400/10",
-    tags: EXP_METADATA[idx]?.tags || [],
+    tags: item.tags || [],
   }));
 
   return (
@@ -121,7 +118,7 @@ export default function Experience() {
                   {/* Technical Tags */}
                   <div className="pt-4 border-t border-slate-200/70 flex flex-wrap gap-2 items-center">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mr-1">
-                      {language === 'fr' ? 'Technologies & Méthodes :' : 'Technologies & Methods:'}
+                      {t.experience.techMethodsLabel}
                     </span>
                     {exp.tags.map((tag, tIdx) => (
                       <span

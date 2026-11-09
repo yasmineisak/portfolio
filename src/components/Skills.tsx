@@ -16,60 +16,6 @@ import { useLanguage } from '../context/LanguageContext';
 
 const SKILL_ICONS: LucideIcon[] = [Brain, Activity, BarChart3, Code2, Server];
 
-const SKILL_ITEMS_DATA = [
-  [
-    "YOLOv8",
-    "PaddleOCR",
-    "LLM & RAG",
-    "LangChain",
-    "Hugging Face",
-    "Deep Learning",
-    "TensorFlow",
-    "PyTorch",
-    "Scikit-learn",
-  ],
-  [
-    "Apache Spark",
-    "Apache Kafka",
-    "ChromaDB",
-    "Apache Airflow",
-    "Airbyte",
-    "Vectorisation",
-    "Pipelines ETL",
-  ],
-  [
-    "Power BI",
-    "Tableau",
-    "PostgreSQL",
-    "MySQL",
-    "MongoDB",
-    "Redis",
-    "Snowflake",
-    "SQL Server",
-    "Excel Avancé",
-  ],
-  [
-    "Python",
-    "Java",
-    "Spring Boot",
-    "React",
-    "Django",
-    ".NET",
-    "C",
-    "PHP",
-    "JavaScript",
-    "HTML / CSS",
-  ],
-  [
-    "Docker",
-    "Git",
-    "Linux",
-    "Proxmox VE",
-    "Conteneurisation",
-    "Microservices",
-  ],
-];
-
 export default function Skills() {
   const { t } = useLanguage();
 
@@ -101,7 +47,7 @@ export default function Skills() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-7 items-stretch">
         {t.skills.categories.map((category, idx) => {
           const Icon = SKILL_ICONS[idx] || Brain;
-          const items = SKILL_ITEMS_DATA[idx] || [];
+          const items = category.items || [];
           const isBottomRow = idx >= 3;
           const spanClass = isBottomRow ? "lg:col-span-3" : "lg:col-span-2";
 
